@@ -74,7 +74,7 @@ prepend_keymap = [
 
 	# Enter - Open tmux session via tmux-sessionizer
 	{ on = "<Enter>", run = '''
-		shell --block '~/bin/tmux-sessionizer "$@"' --
+		shell --block '$HOME/bin/tmux-sessionizer "$@"' --
 	''', desc = "Open tmux session (lf: Enter)" },
 
 	# ============================================================================
