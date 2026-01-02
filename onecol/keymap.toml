@@ -24,7 +24,7 @@ prepend_keymap = [
 
 	# Yr - Yank relative path (git-relative if in repo, otherwise absolute)
 	{ on = [ "Y", "r" ], run = '''
-		shell '$HOME/.config/yazi/scripts/yank_relative.sh "$1"' --
+		shell '$HOME/.config/yazi/scripts/yank_relative.sh "$@"' --
 	''', desc = "Yank relative path (lf: Yr)" },
 
 	# Ya - Yank absolute path (same as cc but with lf keybinding)
@@ -40,7 +40,7 @@ prepend_keymap = [
 
 	# Yb - Yank browser-friendly path (file:// URL)
 	{ on = [ "Y", "b" ], run = '''
-		shell 'printf "file://%s" "$1" | pbcopy' --
+		shell '$HOME/.config/yazi/scripts/yank_browser_path.sh "$@"' --
 	''', desc = "Yank browser path file:// (lf: Yb)" },
 
 	# ============================================================================
