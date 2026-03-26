@@ -22,12 +22,12 @@ prepend_keymap = [
 
 	# o - Send selected file to nvim in pane 0
 	{ on = "o", run = '''
-		shell 'tmux send-keys -t 0 ":edit $1" Enter && tmux select-pane -t 0' --
+		shell 'tmux send-keys -t 0 Escape ":edit $1" Enter && tmux select-pane -t 0' --
 	''', desc = "Send to nvim in pane 0" },
 
 	# Re - Register yazi with nvim (attach to editor)
 	{ on = [ "R", "e" ], run = '''
-		shell 'pane=$(tmux display-message -p "#{pane_index}") && tmux send-keys -t 0 ":lua vim.g.yazi = {id=$YAZI_ID, pane=$pane}" Enter' --
+		shell 'pane=$(tmux display-message -p "#{pane_index}") && tmux send-keys -t 0 Escape ":lua vim.g.yazi = {id=$YAZI_ID, pane=$pane}" Enter' --
 	''', desc = "Register with nvim" },
 
 	# ============================================================================
@@ -181,7 +181,7 @@ keymap = [
 	{ on = "<C-->",     run = "hardlink",                    desc = "Hardlink yanked files" },
 	# Note: Y is used as prefix for Yr, Ya, Yn, Yc, Yb in prepend_keymap
 	# { on = "Y",         run = "unyank",                      desc = "Cancel the yank status" },
-	{ on = "X",         run = "unyank",                      desc = "Cancel the yank status" },
+	{ on = "c",         run = "unyank",                      desc = "Clear the yank status" },
 	{ on = "d",         run = "remove",                      desc = "Trash selected files" },
 	{ on = "D",         run = "remove --permanently",        desc = "Permanently delete selected files" },
 	{ on = "a",         run = "create",                      desc = "Create a file (ends with / for directories)" },
@@ -203,11 +203,6 @@ keymap = [
 	{ on = [ "m", "o" ], run = "linemode owner",       desc = "Linemode: owner" },
 	{ on = [ "m", "n" ], run = "linemode none",        desc = "Linemode: none" },
 
-	# Copy
-	{ on = [ "c", "c" ], run = "copy path",             desc = "Copy the file path" },
-	{ on = [ "c", "d" ], run = "copy dirname",          desc = "Copy the directory path" },
-	{ on = [ "c", "f" ], run = "copy filename",         desc = "Copy the filename" },
-	{ on = [ "c", "n" ], run = "copy name_without_ext", desc = "Copy the filename without extension" },
 
 	# Filter
 	{ on = "f", run = "filter --smart", desc = "Filter files" },
