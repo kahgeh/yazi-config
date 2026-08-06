@@ -73,13 +73,13 @@ prepend_keymap = [
 	''', desc = "Open tmux session (lf: Enter)" },
 
 	# ============================================================================
-	# lf Migration: Navigation (gr, gs, gS, gf for Documents)
+	# lf Migration: Navigation (gr, gs, gS, gF for Documents)
 	# ============================================================================
 
 	# gr - Go to git repository root
 	{ on = [ "g", "r" ], run = '''shell -- ya emit cd "$(git rev-parse --show-toplevel 2>/dev/null)"''', desc = "Go to repo root (lf: gr)" },
 
-	# gf - Go to Documents (lf used gf for ~/Documents, yazi default gf is follow symlink)
+	# gF - Go to Documents (lf used gf for ~/Documents)
 	# Overriding to match lf behavior
 	{ on = [ "g", "F" ], run = "cd ~/Documents", desc = "Go to Documents (lf: gf)" },
 
@@ -95,6 +95,7 @@ prepend_keymap = [
 	# ============================================================================
 	{ on = [ "g", "p" ], run = "cd ~/Dev/p",     desc = "Go to ~/Dev/p" },
 	{ on = [ "g", "x" ], run = "cd ~/Dev/xn",    desc = "Go to ~/Dev/xn" },
+	{ on = [ "g", "f" ], run = "cd ~/Dev/fo",    desc = "Go to ~/Dev/fo" },
 	{ on = [ "g", "d" ], run = "cd ~/Downloads", desc = "Go to Downloads" },
 	{ on = [ "g", "c" ], run = "cd ~/.config",   desc = "Go to ~/.config" },
 	{ on = [ "g", "h" ], run = "cd ~",           desc = "Go to home" },
@@ -220,7 +221,7 @@ keymap = [
 	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go ~/.config" },
 	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Go ~/Downloads" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
-	{ on = [ "g", "f" ],       run = "follow",           desc = "Follow hovered symlink" },
+	{ on = [ "g", "l" ],       run = "follow",            desc = "Follow hovered symlink" },
 	{ on = [ "g", "p" ],       run = "cd ~/Dev/p",       desc = "Go personal repos" },
 	{ on = [ "g", "x" ],       run = "cd ~/Dev/xn",      desc = "Go external repos" },
 
